@@ -28,7 +28,7 @@ function MoneyIllustration() {
 	)
 }
 
-function OnboardingScreen() {
+function OnboardingScreen({ onNext }) {
 	return (
 		<main className="control-screen">
 			<div className="control-illustration" aria-hidden="true">
@@ -44,7 +44,7 @@ function OnboardingScreen() {
 				<p>Track your spending, create smarter<br />budgets, and save towards the things that<br />matter.</p>
 			</section>
 
-			<button className="control-action" type="button">Next</button>
+			<button className="control-action" type="button" onClick={onNext}>Next</button>
 		</main>
 	)
 }

@@ -9,8 +9,13 @@ function WalletLogo() {
 	)
 }
 
-function SignupScreen() {
+function SignupScreen({ onSignedUp }) {
 	const [showPassword, setShowPassword] = useState(false)
+
+	function handleSubmit(event) {
+		event.preventDefault()
+		onSignedUp()
+	}
 
 	return (
 		<main className="signup-screen">
@@ -20,7 +25,7 @@ function SignupScreen() {
 				<p>Make every naira count</p>
 			</header>
 
-			<form className="signup-form">
+			<form className="signup-form" onSubmit={handleSubmit}>
 				<input type="text" placeholder="Full Name" aria-label="Full Name" />
 				<input type="email" placeholder="Email" aria-label="Email" />
 				<input type="tel" placeholder="Phone number (+234)" aria-label="Phone number" />

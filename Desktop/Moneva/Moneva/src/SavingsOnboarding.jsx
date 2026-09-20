@@ -1,4 +1,4 @@
-function SavingsOnboarding() {
+function SavingsOnboarding({ onGetStarted }) {
 	return (
 		<main className="savings-screen">
 			<div className="savings-illustration" aria-hidden="true">
@@ -24,7 +24,7 @@ function SavingsOnboarding() {
 				<p>Set savings goals, track your progress,<br />and build better money habits with<br />Moneva.</p>
 			</div>
 
-			<button className="savings-action" type="button">Get Started</button>
+			<button className="savings-action" type="button" onClick={onGetStarted}>Get Started</button>
 		</main>
 	)
 }

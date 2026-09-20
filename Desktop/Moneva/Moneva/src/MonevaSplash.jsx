@@ -1,4 +1,4 @@
-function MonevaSplash() {
+function MonevaSplash({ onContinue }) {
 	return (
 		<main className="splash-screen">
 			<div className="wallet-pattern wallet-pattern-top" aria-hidden="true">
@@ -13,6 +13,7 @@ function MonevaSplash() {
 				</div>
 				<h1>MONEVA</h1>
 				<p>Make every naira count</p>
+				<button className="splash-action" type="button" onClick={onContinue}>Get Started</button>
 			</div>
 			<div className="wallet-pattern wallet-pattern-bottom" aria-hidden="true">
 				<span />
