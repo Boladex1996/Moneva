@@ -27,9 +27,9 @@ const accountRows = [
 	['⇥', 'Log Out'],
 ]
 
-function MoreRow({ icon, label }) {
+function MoreRow({ icon, label, onClick }) {
 	return (
-		<button className="more-row" type="button">
+		<button className="more-row" type="button" onClick={onClick}>
 			<span className="more-row-icon" aria-hidden="true">{icon}</span>
 			<strong>{label}</strong>
 			<span className="more-row-arrow" aria-hidden="true">›</span>
@@ -37,7 +37,7 @@ function MoreRow({ icon, label }) {
 	)
 }
 
-function MoreScreen() {
+function MoreScreen({ onNavigate, onProfile }) {
 	return (
 		<main className="more-screen">
 			<header className="more-header">
@@ -48,25 +48,25 @@ function MoreScreen() {
 				<button className="notification-button" type="button" aria-label="Notifications"><BellIcon /></button>
 			</header>
 
-			<button className="more-profile" type="button">
+			<button className="more-profile" type="button" onClick={onProfile}>
 				<div className="more-avatar">MB</div>
 				<div><strong>Mercy</strong><span>Adeogomercy@gmail.com</span></div>
 				<span className="more-row-arrow" aria-hidden="true">›</span>
 			</button>
 
 			<section className="more-group" aria-label="Account tools">
-				{settingsRows.map(([icon, label]) => <MoreRow key={label} icon={icon} label={label} />)}
+				{settingsRows.map(([icon, label]) => <MoreRow key={label} icon={icon} label={label} onClick={label === 'Profile' ? onProfile : undefined} />)}
 			</section>
 			<section className="more-group" aria-label="Account settings">
 				{accountRows.map(([icon, label]) => <MoreRow key={label} icon={icon} label={label} />)}
 			</section>
 
 			<nav className="dashboard-nav more-nav" aria-label="Main navigation">
-				<a className="nav-item" href="#home"><HomeIcon /><span>Home</span></a>
-				<a className="nav-item" href="#budget"><BudgetIcon /><span>Budget</span></a>
-				<button className="add-button" type="button" aria-label="Add transaction">+</button>
-				<a className="nav-item" href="#savings"><SavingsIcon /><span>Savings</span></a>
-				<a className="nav-item active" href="#more"><span className="more-icon">•••</span><span>More</span></a>
+				<button className="nav-item" type="button" onClick={() => onNavigate('home')}><HomeIcon /><span>Home</span></button>
+				<button className="nav-item" type="button" onClick={() => onNavigate('budget')}><BudgetIcon /><span>Budget</span></button>
+				<button className="add-button" type="button" aria-label="Add transaction" onClick={() => onNavigate('expense')}>+</button>
+				<button className="nav-item" type="button" onClick={() => onNavigate('savings')}><SavingsIcon /><span>Savings</span></button>
+				<button className="nav-item active" type="button" onClick={() => onNavigate('more')}><span className="more-icon">•••</span><span>More</span></button>
 			</nav>
 		</main>
 	)

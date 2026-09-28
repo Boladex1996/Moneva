@@ -14,7 +14,7 @@ function SavingsIcon() {
 	return <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M6 16c0-5 4-8 10-8 4 0 7 2 8 5l-2 7H9l-3-4Z" stroke="currentColor" strokeWidth="2" /><path d="M20 8c1-2 3-3 5-3M9 20v3M20 20v3M22 14h2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
 }
 
-function HomeScreen({ onAddExpense }) {
+function HomeScreen({ onAddExpense, onNavigate }) {
 	return (
 		<main className="home-screen">
 			<header className="home-header">
@@ -53,11 +53,11 @@ function HomeScreen({ onAddExpense }) {
 			<button className="home-add-expense" type="button" onClick={onAddExpense}>Add Expense</button>
 
 			<nav className="dashboard-nav home-nav" aria-label="Main navigation">
-				<a className="nav-item active" href="#home"><HomeIcon /><span>Home</span></a>
-				<a className="nav-item" href="#budget"><BudgetIcon /><span>Budget</span></a>
-				<button className="add-button" type="button" aria-label="Add transaction">+</button>
-				<a className="nav-item" href="#savings"><SavingsIcon /><span>Savings</span></a>
-				<a className="nav-item" href="#more"><span className="more-icon">•••</span><span>More</span></a>
+			<button className="nav-item active" type="button" onClick={() => onNavigate('home')}><HomeIcon /><span>Home</span></button>
+			<button className="nav-item" type="button" onClick={() => onNavigate('budget')}><BudgetIcon /><span>Budget</span></button>
+				<button className="add-button" type="button" aria-label="Add transaction" onClick={onAddExpense}>+</button>
+			<button className="nav-item" type="button" onClick={() => onNavigate('savings')}><SavingsIcon /><span>Savings</span></button>
+			<button className="nav-item" type="button" onClick={() => onNavigate('more')}><span className="more-icon">•••</span><span>More</span></button>
 			</nav>
 		</main>
 	)

@@ -507,9 +507,14 @@
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  padding: 0;
+  border: 0;
   color: #929c98;
+  background: transparent;
+  font-family: inherit;
   font-size: 11px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-item svg {
@@ -706,7 +711,8 @@
   --overview-green: #119276;
   min-height: 100svh;
   box-sizing: border-box;
-  padding: 34px 8.5% 28px;
+  position: relative;
+  padding: 34px 8.5% 98px;
   color: #252c29;
   background: #f0f8f6;
 }
@@ -831,6 +837,10 @@
 .overview-bar.green span { background: #38c432; }
 .overview-bar.red span { background: #d8484f; }
 .overview-category small { display: block; margin-top: 4px; color: #4f5b56; text-align: right; font-size: 10px; }
+
+.budget-overview-nav {
+  background: rgba(255, 255, 255, 0.94);
+}
 
 .budget-screen {
   --budget-green: #119276;

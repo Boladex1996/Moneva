@@ -10,7 +10,7 @@ const categories = [
 	['Data', '0/5000', '0%', 'orange'],
 ]
 
-function BudgetOverviewScreen() {
+function BudgetOverviewScreen({ onNavigate }) {
 	return (
 		<main className="budget-overview-screen">
 			<header className="budget-overview-header">
@@ -45,6 +45,14 @@ function BudgetOverviewScreen() {
 					</article>
 				))}
 			</section>
+
+			<nav className="dashboard-nav budget-overview-nav" aria-label="Main navigation">
+				<button className="nav-item" type="button" onClick={() => onNavigate('home')}><span aria-hidden="true">⌂</span><span>Home</span></button>
+				<button className="nav-item active" type="button" onClick={() => onNavigate('budget')}><span aria-hidden="true">▣</span><span>Budget</span></button>
+				<button className="add-button" type="button" aria-label="Add transaction" onClick={() => onNavigate('expense')}>+</button>
+				<button className="nav-item" type="button" onClick={() => onNavigate('savings')}><span aria-hidden="true">♧</span><span>Savings</span></button>
+				<button className="nav-item" type="button" onClick={() => onNavigate('more')}><span className="more-icon">•••</span><span>More</span></button>
+			</nav>
 		</main>
 	)
 }

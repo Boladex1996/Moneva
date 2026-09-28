@@ -11,11 +11,11 @@ const profileDetails = [
 	['Location', 'Ibadan, Oyo State'],
 ]
 
-function ProfileScreen() {
+function ProfileScreen({ onBack }) {
 	return (
 		<main className="profile-screen">
 			<header className="profile-header">
-				<button className="profile-back-button" type="button" aria-label="Go back">&#8592;</button>
+				<button className="profile-back-button" type="button" aria-label="Go back" onClick={onBack}>&#8592;</button>
 				<div className="profile-heading">
 					<h1>Profile</h1>
 					<p>View and manage your personal information</p>
