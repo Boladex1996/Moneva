@@ -178,6 +178,10 @@
   background: #f7faf9;
 }
 
+.login-screen {
+  padding-top: clamp(18px, 4vh, 38px);
+}
+
 .signup-brand {
   display: flex;
   flex-direction: column;
@@ -210,6 +214,10 @@
   width: 100%;
   max-width: 326px;
   margin-top: clamp(44px, 9vh, 72px);
+}
+
+.login-form {
+  margin-top: 8px;
 }
 
 .signup-form input {
@@ -268,11 +276,25 @@
   cursor: pointer;
 }
 
+.login-submit {
+  margin-top: 18px;
+}
+
 .signup-submit:focus-visible,
 .social-signup button:focus-visible,
 .password-field button:focus-visible {
   outline: 2px solid var(--signup-green);
   outline-offset: 3px;
+}
+
+.forgot-password {
+  display: block;
+  margin: -4px 0 18px;
+  color: #1d8d77;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
 }
 
 .signup-divider {
@@ -321,10 +343,18 @@
   font-size: 15px;
 }
 
-.login-prompt a {
+.login-prompt a,
+.inline-link {
   color: #1973c7;
   font-weight: 600;
   text-decoration: none;
+}
+
+.inline-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .otp-screen {

@@ -9,52 +9,45 @@ function WalletLogo() {
 	)
 }
 
-function SignupScreen({ onSignedUp, onGoToLogin }) {
+function LoginScreen({ onLogin, onGoToSignup }) {
 	const [showPassword, setShowPassword] = useState(false)
 
 	function handleSubmit(event) {
 		event.preventDefault()
-		onSignedUp()
+		onLogin?.()
 	}
 
 	return (
-		<main className="signup-screen">
-			<header className="signup-brand">
+		<main className="signup-screen login-screen">
+			<header className="signup-brand login-brand">
 				<WalletLogo />
 				<h1>MONEVA</h1>
 				<p>Make every naira count</p>
 			</header>
 
-			<form className="signup-form" onSubmit={handleSubmit}>
-				<input type="text" placeholder="Full Name" aria-label="Full Name" />
-				<input type="email" placeholder="Email" aria-label="Email" />
+			<form className="signup-form login-form" onSubmit={handleSubmit}>
 				<input type="tel" placeholder="Phone number (+234)" aria-label="Phone number" />
 				<div className="password-field">
-					<input type={showPassword ? 'text' : 'password'} placeholder="Create Password" aria-label="Create Password" />
+					<input type={showPassword ? 'text' : 'password'} placeholder="Password" aria-label="Password" />
 					<button type="button" aria-label="Toggle password visibility" onClick={() => setShowPassword(!showPassword)}>
 						{showPassword ? '◉' : '◌'}
 					</button>
 				</div>
-				<div className="password-field">
-					<input type={showPassword ? 'text' : 'password'} placeholder="Confirm Password" aria-label="Confirm Password" />
-					<button type="button" aria-label="Toggle password visibility" onClick={() => setShowPassword(!showPassword)}>
-						{showPassword ? '◉' : '◌'}
-					</button>
-				</div>
-				<button className="signup-submit" type="submit">Sign up</button>
+				<a href="#forgot-password" className="forgot-password">Forgot Password?</a>
+				<button className="signup-submit login-submit" type="submit">Log In</button>
 			</form>
 
 			<div className="signup-divider"><span />or<span /></div>
 
-			<div className="social-signup" aria-label="Social sign up options">
+			<div className="social-signup" aria-label="Social sign in options">
 				<button type="button" aria-label="Continue with Facebook">f</button>
 				<button type="button" aria-label="Continue with Apple">●</button>
 				<button type="button" aria-label="Continue with Google">G</button>
 			</div>
 
-			<p className="login-prompt">Already have an account? <button type="button" className="inline-link" onClick={onGoToLogin}>Log In</button></p>
+			<p className="login-prompt">Don't have an account? <button type="button" className="inline-link" onClick={onGoToSignup}>Sign Up</button></p>
 		</main>
 	)
 }
 
-export default SignupScreen
+export default LoginScreen

@@ -43,7 +43,7 @@ function SavingsScreen({ onNavigate }) {
 				<div className="savings-empty-icon"><SavingsWalletIcon /></div>
 				<h2>Start your savings goal</h2>
 				<p>Give your money a purpose and track<br />progress toward it.</p>
-				<button type="button">Coming Soon</button>
+				<button type="button" onClick={() => window.open('https://vipbox.pw', '_blank', 'noopener,noreferrer')}>Coming Soon</button>
 			</section>
 
 			<nav className="dashboard-nav savings-nav" aria-label="Main navigation">
